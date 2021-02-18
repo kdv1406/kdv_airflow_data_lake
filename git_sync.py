@@ -20,7 +20,7 @@ dag = DAG(
     'git_sync',
     default_args=default_args,
     description='A simple tutorial DAG',
-    schedule_interval=timedelta(seconds=20),
+    schedule_interval=timedelta(seconds=60),
 )
 
 latest_only = LatestOnlyOperator(task_id='latest_only', dag=dag)
