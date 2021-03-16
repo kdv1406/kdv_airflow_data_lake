@@ -18,7 +18,7 @@ dag = DAG(
     'data_lake_etl',
     default_args=default_args,
     description='Data Lake ETL tasks',
-    schedule_interval=timedelta(years=1),
+    schedule_interval="0 0 1 1 *",
 )
 
 ods_billing = DataProcHiveOperator(
