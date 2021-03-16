@@ -29,6 +29,6 @@ ods_billing = DataProcHiveOperator(
         select * from stg.billing where year(from_unixtime(`timestamp` div 1000)) = {{ execution_date.year }};
     """,
     # job_name=GCP_PROJECT_TEMPLATED,
-    cluster_name='cluster-dataproc-m',
+    cluster_name='cluster-dataproc',
     region='us-central1',
 )
