@@ -30,5 +30,5 @@ ods_billing = DataProcHiveOperator(
     """,
     # job_name=GCP_PROJECT_TEMPLATED,
     cluster_name='cluster-dataproc-m',
-    # region=GCP_REGION_TEMPLATED,
+    region='us-central1-a',
 )
