@@ -1,4 +1,5 @@
 from datetime import timedelta, datetime
+from random import randint
 
 from airflow import DAG
 from airflow.contrib.operators.dataproc_operator import DataProcHiveOperator
@@ -29,5 +30,6 @@ ods_billing = DataProcHiveOperator(
         select * from stg.billing where year(from_unixtime(`timestamp` div 1000)) = {{ execution_date.year }};
     """,
     cluster_name='cluster-dataproc',
+    job_name='ods_billing_{{ execution_date.year }}_' + randint(0, 100000),
     region='us-central1',
 )
