@@ -7,7 +7,7 @@ from airflow.contrib.operators.dataproc_operator import DataProcHiveOperator
 USERNAME = 'emateshuk'
 
 default_args = {
-    'owner': 'emateshuk',
+    'owner': USERNAME,
     'start_date': datetime(2012, 1, 1, 0, 0, 0)
 }
 
