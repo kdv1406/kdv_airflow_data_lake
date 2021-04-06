@@ -22,8 +22,8 @@ ods_billing = DataProcHiveOperator(
     task_id='ods_billing',
     dag=dag,
     query="""
-        insert overwrite table egorios.ods_billing partition (year='{{ execution_date.year }}') 
-        select * from egorios.stg_billing where year(from_unixtime(`timestamp` div 1000)) = {{ execution_date.year }};
+        insert overwrite table emateshuk.ods_billing partition (year='{{ execution_date.year }}') 
+        select * from emateshuk.stg_billing where year(created_at) = {{ execution_date.year }};
     """,
     cluster_name='cluster-dataproc',
     job_name=USERNAME + '_ods_billing_{{ execution_date.year }}_{{ params.job_suffix }}',
