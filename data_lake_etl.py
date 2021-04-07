@@ -24,7 +24,7 @@ ods_billing = DataProcHiveOperator(
     query="""
         insert overwrite table emateshuk.ods_billing partition (year='{{ execution_date.year }}') 
         select * from emateshuk.stg_billing where year(created_at) = {{ execution_date.year }};
-    """,lkj
+    """,
     cluster_name='cluster-dataproc',
     job_name=USERNAME + '_ods_billing_{{ execution_date.year }}_{{ params.job_suffix }}',
     params={"job_suffix": randint(0, 100000)},
